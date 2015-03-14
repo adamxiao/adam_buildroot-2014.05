@@ -40,7 +40,7 @@ static char sysroot[PATH_MAX];
 
 static char *predef_args[] = {
 	path,
-	"--sysroot", sysroot,
+//	"--sysroot", sysroot,
 #ifdef BR_ABI
 	"-mabi=" BR_ABI,
 #endif

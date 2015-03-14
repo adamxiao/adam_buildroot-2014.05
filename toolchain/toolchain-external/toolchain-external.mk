@@ -689,11 +689,7 @@ endef
 # and the target directory, we do everything within the
 # install-staging step, arbitrarily.
 define TOOLCHAIN_EXTERNAL_INSTALL_STAGING_CMDS
-	$(TOOLCHAIN_EXTERNAL_INSTALL_CORE)
-	$(TOOLCHAIN_EXTERNAL_INSTALL_BFIN_FDPIC)
-	$(TOOLCHAIN_EXTERNAL_INSTALL_BFIN_FLAT)
 	$(TOOLCHAIN_EXTERNAL_INSTALL_WRAPPER)
-	$(TOOLCHAIN_EXTERNAL_INSTALL_GDBINIT)
 endef
 
 $(eval $(generic-package))
