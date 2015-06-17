@@ -115,9 +115,9 @@ define $(2)_CONFIGURE_CMDS
 		--target=$$(GNU_TARGET_NAME) \
 		--host=$$(GNU_TARGET_NAME) \
 		--build=$$(GNU_HOST_NAME) \
-		--prefix=/usr \
-		--exec-prefix=/usr \
-		--sysconfdir=/etc \
+		--prefix=$$(ADAM_PREFIX)/usr \
+		--exec-prefix=$$(ADAM_PREFIX)/usr \
+		--sysconfdir=$$(ADAM_PREFIX)/etc \
 		--program-prefix="" \
 		--disable-gtk-doc \
 		--disable-doc \
@@ -263,9 +263,9 @@ endif
 ifndef $(2)_INSTALL_STAGING_CMDS
 define $(2)_INSTALL_STAGING_CMDS
 	$$(TARGET_MAKE_ENV) $$($$(PKG)_MAKE_ENV) $$($$(PKG)_MAKE) $$($$(PKG)_INSTALL_STAGING_OPT) -C $$($$(PKG)_SRCDIR)
-	for i in $$$$(find $(STAGING_DIR)/usr/lib* -name "*.la"); do \
+	for i in $$$$(find $(STAGING_DIR)/$(ADAM_PREFIX)/usr/lib* -name "*.la"); do \
 		cp -f $$$$i $$$$i~; \
-		$$(SED) "s:\(['= ]\)/usr:\\1$(STAGING_DIR)/usr:g" $$$$i; \
+		$$(SED) "s:\(['= ]\)/usr:\\1$(STAGING_DIR)/$(ADAM_PREFIX)/usr:g" $$$$i; \
 	done
 endef
 endif

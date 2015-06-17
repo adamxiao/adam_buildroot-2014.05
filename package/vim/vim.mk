@@ -37,7 +37,7 @@ define VIM_INSTALL_RUNTIME_CMDS
 endef
 
 define VIM_REMOVE_DOCS
-	find $(TARGET_DIR)/usr/share/vim -type f -name "*.txt" -delete
+	find $(TARGET_DIR)/$(ADAM_PREFIX)/usr/share/vim -type f -name "*.txt" -delete
 endef
 
 ifeq ($(BR2_PACKAGE_VIM_RUNTIME),y)

@@ -347,6 +347,7 @@ endif
 export BR2_CONFIG
 export TARGET_DIR
 export STAGING_DIR
+export ADAM_PREFIX
 export HOST_DIR
 export BINARIES_DIR
 export BASE_DIR

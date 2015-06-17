@@ -14,7 +14,7 @@ NEON_CONFIG_SCRIPTS = neon-config
 NEON_DEPENDENCIES = host-pkgconf
 
 ifeq ($(BR2_PACKAGE_NEON_ZLIB),y)
-NEON_CONF_OPT += --with-zlib=$(STAGING_DIR)
+NEON_CONF_OPT += --with-zlib=$(STAGING_DIR)/$(ADAM_PREFIX)
 NEON_DEPENDENCIES += zlib
 else
 NEON_CONF_OPT += --without-zlib
@@ -28,7 +28,7 @@ NEON_CONF_OPT += --without-ssl
 endif
 
 ifeq ($(BR2_PACKAGE_NEON_EXPAT),y)
-NEON_CONF_OPT += --with-expat=$(STAGING_DIR)/usr/lib/libexpat.la
+NEON_CONF_OPT += --with-expat=$(STAGING_DIR)/$(ADAM_PREFIX)/usr/lib/libexpat.la
 NEON_DEPENDENCIES += expat
 else
 NEON_CONF_OPT += --with-expat=no
@@ -36,7 +36,7 @@ endif
 
 ifeq ($(BR2_PACKAGE_NEON_LIBXML2),y)
 NEON_CONF_OPT += --with-libxml2=yes
-NEON_CONF_ENV += ac_cv_prog_XML2_CONFIG=$(STAGING_DIR)/usr/bin/xml2-config
+NEON_CONF_ENV += ac_cv_prog_XML2_CONFIG=$(STAGING_DIR)/$(ADAM_PREFIX)/usr/bin/xml2-config
 NEON_DEPENDENCIES += libxml2
 else
 NEON_CONF_OPT += --with-libxml2=no

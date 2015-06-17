@@ -32,9 +32,9 @@ APR_POST_INSTALL_TARGET_HOOKS += APR_CLEANUP_UNNEEDED_FILES
 
 define APR_FIXUP_RULES_MK
 	$(SED) 's%apr_builddir=%apr_builddir=$(STAGING_DIR)%' \
-		$(STAGING_DIR)/usr/build-1/apr_rules.mk
+		$(STAGING_DIR)/$(ADAM_PREFIX)/usr/build-1/apr_rules.mk
 	$(SED) 's%apr_builders=%apr_builders=$(STAGING_DIR)%' \
-		$(STAGING_DIR)/usr/build-1/apr_rules.mk
+		$(STAGING_DIR)/$(ADAM_PREFIX)/usr/build-1/apr_rules.mk
 endef
 
 APR_POST_INSTALL_STAGING_HOOKS += APR_FIXUP_RULES_MK

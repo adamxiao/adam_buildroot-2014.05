@@ -201,10 +201,10 @@ $(BUILD_DIR)/%/.stamp_staging_installed:
 	$(foreach hook,$($(PKG)_POST_INSTALL_STAGING_HOOKS),$(call $(hook))$(sep))
 	$(Q)if test -n "$($(PKG)_CONFIG_SCRIPTS)" ; then \
 		$(call MESSAGE,"Fixing package configuration files") ;\
-			$(SED)  "s,^\(exec_\)\?prefix=.*,\1prefix=$(STAGING_DIR)/usr,g" \
-				-e "s,-I/usr/,-I$(STAGING_DIR)/usr/,g" \
-				-e "s,-L/usr/,-L$(STAGING_DIR)/usr/,g" \
-				$(addprefix $(STAGING_DIR)/usr/bin/,$($(PKG)_CONFIG_SCRIPTS)) ;\
+			$(SED)  "s,^\(exec_\)\?prefix=.*,\1prefix=$(STAGING_DIR)/$(ADAM_PREFIX)/usr,g" \
+				-e "s,-I/usr/,-I$(STAGING_DIR)/$(ADAM_PREFIX)/usr/,g" \
+				-e "s,-L/usr/,-L$(STAGING_DIR)/$(ADAM_PREFIX)/usr/,g" \
+				$(addprefix $(STAGING_DIR)/$(ADAM_PREFIX)/usr/bin/,$($(PKG)_CONFIG_SCRIPTS)) ;\
 	fi
 	$(Q)touch $@
 	@$(call step_end,install-staging)

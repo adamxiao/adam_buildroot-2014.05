@@ -26,7 +26,7 @@ define ZLIB_CONFIGURE_CMDS
 		CFLAGS="$(TARGET_CFLAGS) $(ZLIB_PIC)" \
 		./configure \
 		$(ZLIB_SHARED) \
-		--prefix=/usr \
+		--prefix=$(ADAM_PREFIX)/usr \
 	)
 endef
 
